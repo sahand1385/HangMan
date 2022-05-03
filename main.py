@@ -72,12 +72,19 @@ def cls():
 check = word()
 len_word = int(len(check))
 guess = ('-' * len_word)
+guess_list = []
 wrong = 0
 while True:
     draw(wrong,guess)
     check_win(guess,check)
     ip = input(" ** Enter the letter : ")
     ip = ip[0]
+    if ip not in guess_list:
+        guess_list.append(ip)
+    else:
+        cls()
+        print(" ** You entered this letter before! ** ")
+        continue
     if ip in check:
         for i in range(len_word):
             if check[i] == ip :
@@ -87,4 +94,5 @@ while True:
     else :
         wrong +=1
     cls()
-    
+
+#Made By SahandS (https://github.com/sahand1385)
